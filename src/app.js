@@ -14,7 +14,7 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 
-app.get("/articles", articlesRouter);
+app.use("/api/articles", articlesRouter);
 
 //GET root page, send back 'Hello, world!' on web page
 app.get("/", (req, res) => {
