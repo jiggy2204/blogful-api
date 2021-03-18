@@ -6,7 +6,10 @@ const helmet = require("helmet");
 
 const { NODE_ENV } = require("./config");
 const { default: knex } = require("knex");
+
 const articlesRouter = require("./articles-router");
+const usersRouter = require("./users/users-router");
+
 const app = express();
 const morganOption = NODE_ENV === "production";
 
@@ -15,6 +18,7 @@ app.use(helmet());
 app.use(cors());
 
 app.use("/api/articles", articlesRouter);
+app.use("/api/users", usersRouter);
 
 //GET root page, send back 'Hello, world!' on web page
 app.get("/", (req, res) => {
