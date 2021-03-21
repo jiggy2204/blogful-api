@@ -44,7 +44,7 @@ articlesRouter
   });
 
 articlesRouter
-  .route("/api/:article_id")
+  .route("/api/articles/:article_id")
   .get((req, res, next) => {
     const knexInstance = req.app.get("db");
     ArticlesService.getById(knexInstance, req.params.article_id)
