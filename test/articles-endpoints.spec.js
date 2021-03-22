@@ -1,3 +1,4 @@
+const expect = require("chai");
 const knex = require("knex");
 const app = require("../src/app");
 const {
@@ -43,12 +44,7 @@ describe("Articles Endpoints", function () {
       const testArticles = makeArticlesArray();
 
       beforeEach("insert articles", () => {
-        return db
-          .into("blogful_users")
-          .insert(testUsers)
-          .then(() => {
-            return db.into("blogful_articles").insert(testArticles);
-          });
+        return db.into("blogful_users").insert(testUsers);
       });
 
       it("responds with 200 and all of the articles", () => {
@@ -61,12 +57,7 @@ describe("Articles Endpoints", function () {
       const { maliciousArticle, expectedArticle } = makeMaliciousArticle();
 
       beforeEach("insert malicious article", () => {
-        return db
-          .into("blogful_users")
-          .insert(testUsers)
-          .then(() => {
-            return db.into("blogful_articles").insert([maliciousArticle]);
-          });
+        return db.into("blogful_users").insert(testUsers);
       });
 
       it("removes XSS attack content", () => {
@@ -96,12 +87,7 @@ describe("Articles Endpoints", function () {
       const testArticles = makeArticlesArray();
 
       beforeEach("insert articles", () => {
-        return db
-          .into("blogful_users")
-          .insert(testUsers)
-          .then(() => {
-            return db.into("blogful_articles").insert(testArticles);
-          });
+        return db.into("blogful_users").insert(testUsers);
       });
 
       it("responds with 200 and the specified article", () => {
@@ -118,12 +104,7 @@ describe("Articles Endpoints", function () {
       const { maliciousArticle, expectedArticle } = makeMaliciousArticle();
 
       beforeEach("insert malicious article", () => {
-        return db
-          .into("blogful_users")
-          .insert(testUsers)
-          .then(() => {
-            return db.into("blogful_articles").insert([maliciousArticle]);
-          });
+        return db.into("blogful_users").insert(testUsers);
       });
 
       it("removes XSS attack content", () => {
@@ -220,12 +201,7 @@ describe("Articles Endpoints", function () {
       const testArticles = makeArticlesArray();
 
       beforeEach("insert articles", () => {
-        return db
-          .into("blogful_users")
-          .insert(testUsers)
-          .then(() => {
-            return db.into("blogful_articles").insert(testArticles);
-          });
+        return db.into("blogful_users").insert(testUsers);
       });
 
       it("responds with 204 and removes the article", () => {
@@ -258,12 +234,7 @@ describe("Articles Endpoints", function () {
       const testArticles = makeArticlesArray();
 
       beforeEach("insert articles", () => {
-        return db
-          .into("blogful_users")
-          .insert(testUsers)
-          .then(() => {
-            return db.into("blogful_articles").insert(testArticles);
-          });
+        return db.into("blogful_users").insert(testUsers);
       });
 
       it("responds with 204 and updates the article", () => {
